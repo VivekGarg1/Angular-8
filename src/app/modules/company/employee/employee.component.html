@@ -1,0 +1,63 @@
+<h2>Using *ngFor Demo</h2>
+<ul>
+<li *ngFor="let employee of employees; let i=index; let f=first; let l=last; let e=even;let o=odd">
+{{i+1}}-{{employee.name}}-{{f}}-{{l}}-{{e}}-{{o}}
+</li>
+</ul>
+
+<h2>Using trackBy with *ngFor Demo</h2>
+<table border="1">
+  <tr>
+    <th>SrNo.</th>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Age</th>
+    <th>Designation</th>
+  </tr>
+  <tr *ngFor="let emp of employeesInfo; let indx=index; trackBy:trackByEmployeeId">
+    <td>{{indx+1}}</td>
+    <td>{{emp.empId}}</td>
+    <td>{{emp.empName}}</td>
+    <td>{{emp.gender}}</td>
+    <td>{{emp.age}}</td>
+    <td>{{emp.designation}}</td>
+  </tr>
+</table>
+<br/>
+<button (click)="getMoreEmployees()">Get More Employee</button>
+
+<h2>Using Grouping with *ngFor Demo</h2>
+<ul *ngFor="let group of countryDetails">
+  {{group.country}}
+  <ul>
+    <li *ngFor="let p of group.people">
+        {{p.name}}
+    </li>
+  </ul>
+</ul>
+
+<h2>Using ngStyle Demo</h2>
+<ul *ngFor="let group of countryDetails" [ngStyle]="{'color':(group.country=='India' ? 'red':group.country=='Australia' ? 'green':'blue')}">
+  {{group.country}}
+  <ul>
+    <li *ngFor="let p of group.people">
+        {{p.name}}
+    </li>
+  </ul>
+</ul>
+
+<h2>Using ngClass Demo</h2>
+<p>Using ngClass with Array example</p>
+<p [ngClass]="['three','four']">Hello Angular users!!!</p>
+
+<p>Using ngClass with String example</p>
+<div *ngFor="let user of users" [ngClass]="'one two'">
+    {{user}}
+</div><br/>
+
+<p>Using ngClass with Object example</p>
+<p [ngClass]="{'one': true,'three':false,'four':true}">Hello Angular users!!!</p>
+
+<p>Using ngClass with method example</p>
+<p [ngClass]="getCssClass('mod')">Hello Angular users!!!</p>

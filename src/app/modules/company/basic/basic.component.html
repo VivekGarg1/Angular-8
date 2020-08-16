@@ -1,0 +1,164 @@
+<h1>Welcome In Angular 8!!!</h1>
+<button>add</button>
+<button>sub</button>
+<button>mul</button>
+<button>div</button>
+<button (click)='btnClick()'>click</button>
+
+<div>
+<input type="radio" name='radio1' (click)="changeValue(true)">True
+<input type="radio" name='radio1' (click)="changeValue(false)">False
+</div>
+
+<h2>Using *ngIf Demo</h2>
+<div *ngIf="isvalid">
+    This is valid data
+</div>
+
+<div *ngIf="!isvalid">
+    This is invalid data
+</div>
+
+<h2>Using *ngIf with else Demo</h2>
+<div *ngIf="isvalid; else elseTemplate">
+    This is valid data
+</div>
+
+<ng-template #elseTemplate>
+    <div *ngIf="!isvalid">
+        This is invalid data
+    </div>
+</ng-template>
+
+<h2>Using *ngIf with then and else Demo</h2>
+<div *ngIf="isvalid; then thenTemplate; else elseTemplateData"></div>
+<ng-template #thenTemplate>
+    <div *ngIf="isvalid">
+        This is valid data
+    </div>
+</ng-template>  
+
+<ng-template #elseTemplateData>
+    <div *ngIf="!isvalid">
+        This is invalid data
+    </div>
+</ng-template>
+
+<h2>Using ngSwitch Demo</h2>
+<select (change)='setSwitchValue($event)'>
+    <option value="">--select--</option>
+    <option value="one">One</option>
+    <option value="two">Two</option>
+    <option value="three">Three</option>
+    <option value="another">Another</option>
+</select>
+<div [ngSwitch]="chooseValue">
+    <p *ngSwitchCase="'one'">First</p>
+    <p *ngSwitchCase="'two'">Second</p>
+    <p *ngSwitchCase="'three'">Third</p>
+    <p *ngSwitchDefault>default</p>
+</div>
+
+<app-employee></app-employee>
+
+<h2>Data Binding Demo</h2>
+
+<p>Data binding using Interpolation(one-way)</p>
+<p>{{empFirstName+' '+empLastName}}</p>
+<p>{{2+5*3}}</p>
+
+<p>Data binding using Property binding(one-way)</p>
+<span [innerHtml]='empFirstName'></span>
+
+<p>Data binding using Attribute binding(one-way)</p>
+<table [attr.border]="borderSize" [attr.height]='tblHeight' [attr.width]='tblWidth'>
+    <tr>
+        <td [attr.colspan]="colSize" [attr.align]="testAlign">Student details</td>
+    </tr>
+    <tr>
+        <td>Id</td>
+        <td>name</td>
+        <td>class</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Vivek Garg</td>
+        <td>12th</td>
+    </tr>
+</table>
+
+<br/>
+<p>Data binding using Event binding(one-way)</p>
+<button (click)="clickbutton()">click</button>
+<button (click)="show()">show</button><br/>
+
+<p [ngClass]="{'one': true}">Two WayData binding using (input)</p>
+Enter your name: <input [value]="data" (input)='data=$event.target.value'><br/>
+<p>Your name: {{data}}</p><br/>
+
+<p [ngClass]="{'three': true}">Two WayData binding using [(ngModel)]</p>
+Enter your name: <input [(ngModel)]="dataValue"><br/>
+Your name: {{dataValue}}
+
+<h1>Pipes Demo</h1>
+<p>Built-In pipes,Parameterized pipes</p>
+<table border="1">
+    <tr>
+      <th>EmpCode</th>
+      <th>Name</th>
+      <th>Salary</th>
+      <th>Gender</th>
+      <th>DOB</th>
+    </tr>
+    <tr *ngFor="let emp of employees">
+      <td>{{emp.code |titlecase}}</td>
+      <td>{{emp.name | uppercase}}</td>
+      <td>{{emp.salary | currency:'USD':true}}</td>
+      <td>{{emp.gender }}</td>
+      <td>{{emp.dob | date:'medium'}}</td>
+      <!-- <td>{{emp.dob | date:'dd/MM/yyyy'}}</td> -->
+      <!-- <td>{{emp.dob | date:'mediumTime'}}</td> -->
+    </tr>
+  </table>
+
+  <p>Multiple pipe(chaining-pipes)</p>
+  <h6>{{ name | uppercase }}-{{ position | lowercase }}-{{ work | titlecase }}</h6>
+  <h6>{{ work | slice:5 }}</h6>
+  <h6>{{ work | slice:5:8 }}</h6>
+  <h6>{{ todayDate }}</h6>
+  <h6>{{ todayDate | date: 'shortDate' }}</h6>
+  <h6>{{ todayDate | date:'longDate' }}</h6>
+  <h6>{{ todayDate | date: 'fullDate' }}</h6>
+  <p>Percent pipe Demo</p>
+  <h6>{{ myNumber }}</h6>
+  <h6>{{ myNumber | percent }}</h6>
+  <h6>{{ myNumber | percent:'2.4-8' }}</h6>
+  <p>Decimal pipe Demo</p>
+  <h6>{{ myNumber }}</h6>
+  <h6>{{ myNumber | number }}</h6>
+  <h6>{{ myNumber | number:'2.4-8' }}</h6>
+  <p>Currency pipe Demo</p>
+  <h6>{{ myNumber }}</h6>
+  <h6>{{ myNumber | currency }}</h6>
+  <h6>{{ myNumber | currency:'INR' }}</h6>
+  <h6>{{ myNumber | currency:'INR':'code' }}</h6>
+
+  <p>Json pipe,Custom pipe</p>
+  <table border="1">
+    <tr>
+      <th>EmpCode</th>
+      <th>Name</th>
+      <th>Salary</th>
+      <th>Gender</th>
+      <th>DOB</th>
+    </tr>
+    <tr *ngFor="let emp of employees">
+      <td>{{emp.code }}</td>
+      <td>{{emp.name | mypipe:emp.gender }}</td>
+      <td>{{emp.salary }}</td>
+      <td>{{emp.gender }}</td>
+      <td>{{emp.dob | date:'medium'}}</td>
+    </tr>
+  </table>
+
+

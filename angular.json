@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "agular8"
+    }
+  },
+  "defaultProject": "agular8",
+  "cli": {
+    "analytics": false
+  }
 }
