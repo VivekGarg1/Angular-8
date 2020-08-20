@@ -1,3 +1,248 @@
-<p>
-  studentregistration works!
-</p>
+<!-- <h1>Template Driven Form</h1>
+<div class="container">
+  <div class="row">
+    <div class="form-bg">
+      <form #regForm='ngForm' (ngSubmit)='registeration(regForm)'>
+        <h2 class="text-center">Registration Page</h2><br/>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="First Name" name="firstName" required ngModel>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Last Name" name="lastName" required ngModel>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Email" name="email" email required ngModel #email='ngModel'>
+          <span class="help-bpx" *ngIf="email.touched && !email.valid">Please Enter email</span>
+        </div><br/>
+        <div class="align-center">
+        <button class="btn btn-primary" type="submit" id="Registration" [disabled]="!regForm.valid">Registration</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+<!-- <h1>Reactive Form Using FormGroup</h1> -->
+<!-- <div class="container">
+  <div class="row">
+    <div class="form-bg">
+      <form [formGroup]='signupForm'>
+        <h2 class="text-center">Registration Page</h2><br/>
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="firstName" placeholder="First Name">
+          <span *ngIf="signupForm.controls.firstName.errors?.required && submitted">
+            First name is required!
+          </span>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="emailId" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" formControlName="userPassword" placeholder="Password">
+        </div><br/>
+        <div class="align-center">
+         <button type="button" class="btn btn-primary" (click)="postData(signupForm)" [disabled]="!signupForm.valid">Submit</button>
+        <button type="button" (click)="postData(signupForm)">Submit</button>
+        <button type="button" (click)="resetForm()">Reset</button>
+        <button type="button" (click)="fillData()">Fill Data</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+<!-- <h1>Reactive Form Using FormArry</h1>
+<form [formGroup]="form" (ngSubmit)='onSubmit()'>
+  <div formArrayName="contactNos">
+    <div *ngFor="let contact of form.controls.contactNos.controls; index as i">
+       <input [formControlName]="i" placeholder="Contact No.">
+    </div>
+  </div>
+  <button>Submit</button>
+</form>
+
+<button (click)='addContactNo()'>Add new contact no</button>
+<button (click)='setPreset()'>Preset</button> -->
+
+<!-- <h4>Radio button,checkbox in template-driven form</h4>
+<form #userForm='ngForm' (ngSubmit)="onFormSubmit(userForm)">
+  <table border="1">
+    <tr>
+      <td>Name:</td>
+      <td>
+        <input type="text" name="userName" [(ngModel)]="user.userName" required #userName='ngModel'>
+        <div *ngIf="userName.invalid" [ngClass]="error">
+          Name required!
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Gender:</td>
+      <td>
+        <input type="radio" value="male" name="gender" [(ngModel)]="user.gender" required #gender='ngModel'>Male
+        <input type="radio" value="female" name="gender" [(ngModel)]="user.gender" required #gender='ngModel'>Female
+        <div *ngIf="gender.invalid">
+          Gender required!
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Are you married?</td>
+      <td>
+        <input type="checkbox" name="married" [(ngModel)]="user.isMarried">
+      </td>
+    </tr>
+    <tr>
+      <td>Accept T & C</td>
+      <td>
+        <input type="checkbox" name="tc" [(ngModel)]="user.isTCAccepted" required #tc="ngModel">
+        <div *ngIf="tc.invalid">
+          T & C required!
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <button type="submit">Submit</button>
+        <button type="button" (click)="setDafaultValue()">Set default</button>
+        <button type="button" (click)="resetUserForm(userForm)">Reset</button>
+      </td>
+    </tr>
+  </table>
+</form> -->
+
+<mat-card>
+  <mat-card-title>
+    Welcome in Angular Material!!
+  </mat-card-title>
+  <mat-card-content>
+    <form class="example-form" [formGroup]="regForm" (ngSubmit)="regFormSubmit(regForm.value)">
+      <table>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="First Name" formControlName="firstName">
+            </mat-form-field>
+            <mat-error>
+              <span *ngIf="!regForm.get('firstName').valid && regForm.get('firstName').touched">
+                Please enter last name!!!
+              </span>
+            </mat-error>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Last Name" formControlName="lastName">
+            </mat-form-field>
+            <mat-error>
+              <span *ngIf="!regForm.get('lastName').valid && regForm.get('lastName').touched">
+                Please enter last name!!!
+              </span>
+            </mat-error>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Email" formControlName="email">
+              <mat-hint>use like: demo@demo.com</mat-hint>
+              <mat-error>
+                <span *ngIf="!regForm.get('email').valid && regForm.get('email').touched">
+                  Please enter email!!!
+                </span>
+              </mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Phone No" formControlName="phoneNo">
+            </mat-form-field>
+            <mat-error>
+              <span *ngIf="regForm.get('phoneNo').hasError('required') && regForm.get('phoneNo').touched">
+                Please enter phoneNo!!!
+              </span>
+              <span *ngIf="regForm.get('phoneNo').hasError('pattern')">
+                Please enter valid phoneNo!!!
+                </span>
+            </mat-error>
+          </td>
+          </tr>
+          <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <textarea formControlName="address" matInput placeholder="Address"></textarea>
+            </mat-form-field>
+            <mat-error>
+              <span *ngIf="!regForm.get('address').valid && regForm.get('address').touched">
+                Please enter address!!!
+              </span>
+            </mat-error>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-label>DOB</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="dob" placeholder="Date of birth">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-error>
+              <span *ngIf="!regForm.get('dob').valid && regForm.get('dob').touched">
+                Please enter date of birth!!!
+              </span>
+            </mat-error>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>Gender: </span><br/>
+            <mat-radio-group aria-label="Select an option" formControlName="gender">
+              <mat-radio-button value="Male">Male</mat-radio-button>
+              <mat-radio-button value="Female">Female</mat-radio-button>
+            </mat-radio-group>
+            <mat-error>
+              <span *ngIf="!regForm.get('gender').valid && regForm.get('gender').touched">
+                Please select gender!!!
+              </span>
+            </mat-error>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-select formControlName="playList" placeholder="Select PlayList">
+                <mat-option value="">--select--</mat-option>
+                <mat-option value="angular2">Angular 2</mat-option>
+                <mat-option value="angular4">Angular 4</mat-option>
+                <mat-option value="angular5">Angular 5</mat-option>
+                <mat-option value="angular6">Angular 6</mat-option>
+                <mat-option value="angular7">Angular 7</mat-option>
+                <mat-option value="angular8">Angular 8</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-error>
+              <span *ngIf="!regForm.get('playList').valid && regForm.get('playList').touched">
+                Please select play list!!!
+              </span>
+            </mat-error>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <section class="example-section">
+              <mat-slide-toggle class="example-margin" formControlName="isAccepted" (change)="onChange($event)">T & C
+                Accepted</mat-slide-toggle>
+            </section>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button type="submit" mat-raised-button color="accent" [disabled]="!regForm.valid || !isAccepted">Submit</button>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+</mat-card>

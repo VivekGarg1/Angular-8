@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { MyService } from 'src/app/service/myservice.service';
 
@@ -20,7 +20,7 @@ export class ParentComponent implements OnInit {
   }
 
   student(){
-    this.router.navigate(['/student']);
+    this.router.navigate(['./student']);
   }
 
 }
