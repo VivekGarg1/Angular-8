@@ -1,0 +1,92 @@
+<mat-card>
+    <mat-card-title>
+        Observable and subscribe with HttpClient post!!!
+    </mat-card-title>
+    <mat-card-content>
+        <p *ngIf="isDataSaved" class="success">Book saved successfully!!!</p>
+        <p *ngIf="isUpdate" class="success">Book update successfully!!!</p>
+        <p *ngIf="isdeleted" class="success">Book delete successfully!!!</p>
+        <form class="example-form" [formGroup]="bookForm" (ngSubmit)="createBook()">
+            <table>
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Book Name" formControlName="name">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!bookForm.get('name').valid && bookForm.get('name').touched">
+                                Please enter book name!!!
+                            </span>
+                        </mat-error>
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Category" formControlName="category">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!bookForm.get('category').valid && bookForm.get('category').touched">
+                                Please enter category name!!!
+                            </span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="submit" mat-raised-button color="accent"
+                            [disabled]="!bookForm.valid">Submit</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<mat-card>
+    <mat-card-title> Observable and subscribe with HttpClient get!!!</mat-card-title>
+
+    <table mat-table [dataSource]="books" class="mat-elevation-z8">
+        <!-- <table mat-table [dataSource]="books |async" class="mat-elevation-z8"> -->
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> Id. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef> Category </th>
+            <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-raised-button color="primary" (click)="editBook(element.id)">Edit</button>
+                <button mat-raised-button color="warn" (click)="deleteBook(element.id)">Delete</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <!-- <div *ngIf="book |async as bk;else loading">
+    Id: {{bk.id}} , name: {{bk.name}} , category: {{bk.category}}
+</div>
+
+<ng-template #loading>
+    <img src="assets/images/Spin-1s-200px.gif"/>
+</ng-template> -->
+
+    <!-- <div *ngIf="bookName |async as bkName">
+    {{bkName}}
+</div> -->
+
+</mat-card>

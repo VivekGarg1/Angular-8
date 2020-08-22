@@ -1,0 +1,13 @@
+<mat-card>
+    <p>Customer detail</p>
+    <mat-list role="list">
+        <mat-list-item role="listitem">Id: {{customer.id}}</mat-list-item>
+        <mat-list-item role="listitem">Name: {{customer.name}}</mat-list-item>
+        <mat-list-item role="listitem">Gender: {{customer.gender}}</mat-list-item>
+        <mat-list-item role="listitem">Age: {{customer.age}}</mat-list-item>
+    </mat-list>
+
+    <button class="btn btn-primary" (click)="goBack()">
+        Go Back
+    </button>
+</mat-card>

@@ -1,1 +1,27 @@
-<h6>Observable and subscribe!!!</h6>
+<!-- <app-observableandsubscribe></app-observableandsubscribe> -->
+
+<h6>Route gaurd Demo!!!</h6>
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary ">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['admin']" routerLinkActive="active">Admin</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['merchant']" routerLinkActive="active">Merchant</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['customer']" routerLinkActive="active">Customer</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['book']" routerLinkActive="active">Book</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div>
+    <router-outlet></router-outlet>
+</div>

@@ -82,8 +82,7 @@ import { RouterModule } from '@angular/router';
     MatRadioModule,
     MatSelectModule,
     MatSlideToggleModule,
-    MatNativeDateModule
-    
+    MatNativeDateModule,
   ],
   providers: [MyService],
   bootstrap: []

@@ -22,7 +22,6 @@ const companyRoutes: Routes = [
   //     { path: 'studentdetails', component: StudentdetailsComponent },
   //     { path: 'studentregistration', component: StudentregistrationComponent }
   //   ]},
-  { path: '**', component: PagenotfoundComponent }
   ];
     
     @NgModule({

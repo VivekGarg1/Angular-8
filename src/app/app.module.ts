@@ -29,7 +29,7 @@ import { MatNativeDateModule } from '@angular/material/core';
   ],
   imports: [
     BrowserAnimationsModule,
-    CompanyModule,
+    //CompanyModule,
     HomeModule,
     AppRoutingModule,
     MatButtonModule,
