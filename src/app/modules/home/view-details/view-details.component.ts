@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/model/customer';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from 'src/app/service/customer.service';
 import { Location } from '@angular/common';
 
@@ -12,7 +12,8 @@ import { Location } from '@angular/common';
 export class ViewDetailsComponent implements OnInit {
 
   customer: Customer;
-  constructor(private route: ActivatedRoute, private customerService: CustomerService, private location: Location) { }
+  constructor(private route: ActivatedRoute, private customerService: CustomerService, private location: Location,
+    private router:Router) { }
 
   ngOnInit(): void {
 

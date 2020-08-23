@@ -21,11 +21,13 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ChangecolorDirective } from './directives/changecolor.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    //ChangecolorDirective,
   ],
   imports: [
     BrowserAnimationsModule,

@@ -15,21 +15,26 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddcustomerComponent } from './addcustomer/addcustomer.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ViewDetailsComponent } from './view-details/view-details.component';
+import { LocalStorageComponent } from './local-storage/local-storage.component';
+import { SessionStorageComponent } from './session-storage/session-storage.component';
 
 
 const homeRoutes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  // { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: DashboardComponent },
   { path: 'admin', component: AdminComponent, canActivate: [ActivateGuard], data: { path: 'admin' } },
   { path: 'book', component: ObservableandsubscribeComponent, canActivate: [ActivateGuard], data: { path: 'book' } },
   { path: 'merchant', component: MerchantComponent, canDeactivate: [DeactivateGuard] },
   {
     path: 'customer', component: CustomerComponent, canActivateChild: [ActivatechildGuard],
+    // path: 'customer', component: CustomerComponent, canActivateChild: [ActivatechildGuard],outlet:'customerdata',
     children: [
       {path: 'addcustomer', component: AddcustomerComponent}
     ]
   },
-  {path: 'view-details/:id', component: ViewDetailsComponent}
+  {path: 'view-details/:id', component: ViewDetailsComponent},
+  { path: 'localstorage', component: LocalStorageComponent },
+  { path: 'sessionstorage', component: SessionStorageComponent },
 ];
 
 @NgModule({

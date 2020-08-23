@@ -1,1 +1,21 @@
-<p>dashboard works!</p>
+<mat-card>
+    <p>@ViewChild!!!</p>
+    <button type="button" (click)="increase()">Increase</button>
+    <button type="button" (click)="decrease()">Decrease</button>
+    <br />
+    <app-admin></app-admin>
+
+    <p appChangecolor>@ViewChild Change color using Directive!!!</p>
+    <div>
+        Change Color:
+        <input type="radio" name="col" (click)="changeColor('green')">Green
+        <input type="radio" name="col" (click)="changeColor('blue')">Blue
+        <input type="radio" name="col" (click)="changeColor('cyan')">Cyan
+    </div>
+
+    <p>@ViewChild using template variable!!!</p>
+    <div>
+        Name:  <input type="text" #name><br/>
+        State: <input type="text" #state>
+    </div>
+</mat-card>

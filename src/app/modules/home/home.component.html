@@ -1,5 +1,6 @@
 <!-- <app-observableandsubscribe></app-observableandsubscribe> -->
 
+<!-- <mat-card>
 <h6>Route gaurd Demo!!!</h6>
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary ">
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -14,14 +15,152 @@
                 <a class="nav-link" [routerLink]="['merchant']" routerLinkActive="active">Merchant</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" [routerLink]="['customer']" routerLinkActive="active">Customer</a>
+                <a class="nav-link" [routerLink]="['book']" routerLinkActive="active">Book</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" [routerLink]="['book']" routerLinkActive="active">Book</a>
+                <a class="nav-link" [routerLink]="['customer']" routerLinkActive="active">Customer</a>
+                Named and multiple router outlet 
+                <a class="nav-link" [routerLink]="[{outlets:{customerdata:['customer']}}]" routerLinkActive="active">Customer</a>
             </li>
         </ul>
     </div>
 </nav>
-<div>
+</mat-card> -->
+
+<!-- <p>Sessiom Management!!!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary ">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['localstorage']" routerLinkActive="active">Company</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['sessionstorage']" routerLinkActive="active">Person</a>
+            </li>
+        </ul>
+    </div>
+</nav> -->
+<!-- <div>
     <router-outlet></router-outlet>
+    <router-outlet name="customerdata"></router-outlet>
+</div> -->
+
+<!-- <p>ng-template Demo!!!</p>
+<div *ngIf="display">
+    div ngIf
 </div>
+
+<ng-template [ngIf]="display">
+    ng-template ngIf
+</ng-template>
+
+<p>IfElse example</p>
+<div *ngIf="!display;else templateName">
+   div data
+</div>
+
+<ng-template #templateName>
+    <div>ng-template data</div>
+</ng-template>
+
+<p>For loop example</p>
+<div *ngFor="let book of bookDetils; let i=index">
+    {{i+1}}. {{book.name}} : {{book.category}}
+</div>
+<ng-template ngFor let-book [ngForOf]="bookDetils" let-i="index">
+    <p>{{i+1}}. {{book.name}} : {{book.category}}</p>
+</ng-template>
+
+<p>Switch example</p>
+<div [ngSwitch]="'javascript'">
+    <div *ngSwitchCase="'angular'">Angular</div>
+    <div *ngSwitchCase="'javascript'">Java Script</div>
+    <div *ngSwitchCase="'react'">React</div>
+    <div *ngSwitchDefault>Html</div>
+</div>
+
+<div [ngSwitch]="'typescript'">
+<ng-template [ngSwitchCase]="'javascript'">
+  <p>Java Script</p>
+</ng-template>
+<ng-template [ngSwitchCase]="'angular'">
+    <p>Angular</p>
+  </ng-template>
+  <ng-template [ngSwitchCase]="'typescript'">
+    <p>Typescript</p>
+  </ng-template>
+  <ng-template [ngSwitchCase]="'php'">
+    <p>PHP</p>
+  </ng-template>
+  <ng-template ngSwitchDefault>
+    <p>Html</p>
+  </ng-template>
+</div> -->
+
+<!-- <p>ng-container Demo!!!</p>
+<ng-container>
+    Hello Container!!!
+</ng-container>
+
+<table>
+    <tbody>
+        <ng-container *ngFor="let book of bookDetils; let i=index">
+            <tr *ngIf="book.id>1">
+                <td>
+                    {{i+1}}. {{book.name}} - {{book.category}}
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
+
+<div *ngIf="display">
+    <div *ngFor="let book of bookDetils">
+        {{book.id}}. {{book.name}} - {{book.category}}
+    </div>
+</div>
+
+<ng-container *ngIf="display">
+    <div *ngFor="let book of bookDetils">
+        {{book.id}}. {{book.name}} - {{book.category}}
+    </div>
+</ng-container>
+
+<ng-container *ngTemplateOutlet="template">
+
+</ng-container>
+<ng-template #template>
+  Hello
+</ng-template>
+
+<ng-container *ngTemplateOutlet="templateData;context:obj">
+
+</ng-container>
+<ng-template #templateData let-ob="data">
+  {{ob}}
+</ng-template> -->
+
+<!-- <h6>JQuery Demo!!!</h6>
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+
+<button (click)="disable()">Click me to hide paragraphs</button> -->
+
+<p>@ViewChild Demo!!!</p>
+<app-dashboard></app-dashboard>
+
+<!-- <p>Interpolation with error with two way handling Demo!!!</p>
+Name:{{city && city.name}}
+Location:{{city && city.location}}
+State:{{city && city.state}}
+
+Name:{{city ?. city.name}}
+Location:{{city ?. city.location}}
+State:{{city ?. city.state}} -->
+
+<!-- <p>Cookies Demo!!!</p>
+<button type="button" (click)="clickMe()">Click Me</button> -->
+
+
+
+

@@ -1,6 +1,6 @@
 <mat-card>
     <button class="btn btn-primary" [routerLink]="['addcustomer']" routerLinkActive="active">Add Customer
-    </button>
+    </button><br/>
     <mat-card-title> Customers detail!!!</mat-card-title>
 
     <table mat-table [dataSource]="customers" class="mat-elevation-z8">
@@ -25,6 +25,10 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <!-- <br/>
+    <button class="btn btn-success" (click)="close()">
+        Go Back
+    </button> -->
 
 </mat-card>
 

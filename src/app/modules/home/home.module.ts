@@ -21,6 +21,7 @@ import { MatListModule} from '@angular/material/list';
 import { BookService } from 'src/app/service/book.service';
 import { GaurdService } from 'src/app/service/gaurd.service';
 import { CustomerService } from 'src/app/service/customer.service';
+import { CookieService } from 'ngx-cookie-service';
 
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryWebApiModule} from 'angular-in-memory-web-api';
@@ -36,6 +37,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerComponent } from './customer/customer.component';
 import { AddcustomerComponent } from './addcustomer/addcustomer.component';
 import { ViewDetailsComponent } from './view-details/view-details.component';
+import { LocalStorageComponent } from './local-storage/local-storage.component';
+import { SessionStorageComponent } from './session-storage/session-storage.component';
+import { ChangecolorDirective } from 'src/app/directives/changecolor.directive';
 
 
 @NgModule({
@@ -47,7 +51,10 @@ import { ViewDetailsComponent } from './view-details/view-details.component';
     DashboardComponent,
     CustomerComponent,
     AddcustomerComponent,
-    ViewDetailsComponent
+    ViewDetailsComponent,
+    LocalStorageComponent,
+    SessionStorageComponent,
+    ChangecolorDirective
   ],
   imports: [
     CommonModule,
@@ -89,7 +96,7 @@ import { ViewDetailsComponent } from './view-details/view-details.component';
     MatSlideToggleModule,
     MatNativeDateModule,
   ],
-  providers:[ BookService , ActivateGuard, GaurdService , CustomerService ]
+  providers:[ BookService , ActivateGuard, GaurdService , CustomerService ,CookieService]
 })
 export class HomeModule {
   constructor(){
